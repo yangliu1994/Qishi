@@ -1,12 +1,12 @@
 
-def binarySearch(lst, x):
+def binarySearch(lst, target):
     l = 0
     r = len(lst) - 1
     while l <= r:
         m = l + int((r - l) / 2)
-        if lst[m] == x:
+        if lst[m] == target:
             return m
-        elif lst[m] < x:
+        if lst[m] < target:
             l = m + 1
         else:
             r = m - 1
@@ -88,11 +88,12 @@ def mySqrt(x):
         m = l + int((r - l) / 2)
         if m * m == x:
             return m
-        elif m * m < x:
+        if m * m < x:
             l = m + 1
         else:
             r = m
     return l - 1
+
 
 print('mySqrt')
 print(mySqrt(8))
@@ -101,7 +102,7 @@ print(mySqrt(15))
 
 def findDuplicate(nums):
     l = 0
-    r = len(nums) + 1
+    r = len(nums) - 1
     while l < r:
         m = l + int((r - l) / 2)
         count = 0
